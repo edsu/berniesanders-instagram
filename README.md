@@ -18,14 +18,16 @@ I haven't included the profile in this GitHub repository because it contains sec
 Then I ran the crawl using my profile:
 
 ```bash
-$ docker run -p 9037:9037 -v $PWD:/crawls/ -it webrecorder/browsertrix-crawler crawl --url https://www.instagram.com/berniesanders --limit 1 --generateWACZ --text --collection berniesanders --behaviors autoscroll,siteSpecific --profile /crawls/profiles/instagram.tar.gz --screencastPort 9037
+docker run -p 9037:9037 -v $PWD:/crawls/ -it webrecorder/browsertrix-crawler crawl --url https://www.instagram.com/berniesanders --limit 1 --generateWACZ --text --collection berniesanders --behaviors autoscroll,siteSpecific --profile /crawls/profiles/instagram.tar.gz --screencastPort 9037 --timeout 1000000 --behaviorTimeout 0 --scopeType page
 ```
 
 A few things to note here are:
 
 - `--profile /crawls/profiles/instagram.tar.gz` which tells browsertrix-crawler to use the Instagram profile I just created
-- `--limit: 1` which makes sure that only that one page is crawled and that it doesn't get snarled up looking at the millions of followers of the account.
+- `--timeout 1000000` this sets a per-page timeout to make sure that the crawl doesn't run for more than 1,000,000 seconds (11 days)
 - `--behaviors autoscroll,siteSpecific` to auto-scoll the page and use the Instagram specific [browsertrix-behaviors](https://github.com/webrecorder/browsertrix-behaviors) to click to get details and comments for each post.
+- `--behaviorTimeout 0` this ensures that there is no timeout for behaviors (we want to browsertrix-crawler to scroll to the end of the page)
+- `--scopeType page` avoids clicking other links since we just want this one user feed and not all of Instagram
 - `--generateWACZ` which will write a WACZ file for the crawl once finished, which is a package of the archived content and its index.
 - `--screencastPort 9037` which let me open http://localhost:9037 to watch the activity of the crawler
 
