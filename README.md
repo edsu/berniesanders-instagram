@@ -30,6 +30,6 @@ A few things to note here are:
 
 <img width="800" src="https://raw.githubusercontent.com/edsu/berniesanders-instagram/main/images/screencast.gif" title="Browsertrix Screencast"/>
 
-Once the crawl completes I went to https://replayweb.page and loaded the WACZ file that is located in `collections/berniesanders/berniesanders.wacz`.
+Once the crawl completed I went to https://replayweb.page and loaded the WACZ file that is located in `collections/berniesanders/berniesanders.wacz`.
 
 <img width="800" src="https://raw.githubusercontent.com/edsu/berniesanders-instagram/main/images/screenshot.png" title="ReplayWeb.Page Screenshot" />
