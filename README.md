@@ -1,19 +1,19 @@
-This repo contains some things I did to try to archive Bernie Sanders Instagram using browsertrix-crawler.
+This repo contains some things I did to try to archive Bernie Sanders Instagram using [browsertrix-crawler](https://github.com/webrecorder/browsertrix-crawler).
 
-First I created a profile for crawling Instagram, which requires a login whether the site is public or not:
+First I created a profile for crawling Instagram, which requires a login whether the account is public or not (in this case Bernie's is):
 
 ```
 docker run -p 9222:9222 -p 9223:9223 -v $PWD:/output/ -it webrecorder/browsertrix-crawler create-login-profile --url "https://www.instagram.com/" --interactive
 ```
 
-Opening http:localhost:9223 in my Chrome browser then let me login to Instagram and even to complete two-factor-authentication with my phone. When I was done clicked the *Create Profile* button at the top of the screen which wrote a `profile.tar.gz` file to my current working directory. I created a profiles directory and moved it in there:
+Opening `http:localhost:9223` in Chrome then let me log in to Instagram, and even to complete two-factor-authentication with my phone. When I was done clicked the *Create Profile* button at the top of the screen which wrote a `profile.tar.gz` file to my current working directory. I then created a profiles directory and moved it in there, giving it a new name to remind me that it has my Instagram account credentials:
 
-```
-mkdir profiles
-mv profile.tar.gz profiles/instagram.tar.gz
+```bash
+$ mkdir profiles
+$ mv profile.tar.gz profiles/instagram.tar.gz
 ```
 
-I haven't included my profile in this GitHub repository because it contains secrets that could be used to login to my account. The recommendation is to create a "burner" account instead of using your personal one. The idea is that this profile can be kept separate from the web archive itself, which could be made public.
+I haven't included the profile in this GitHub repository because it contains secrets that could be used to login to my account. The recommended practice is to create a "burner" account instead of using your personal one. The idea is that this profile is kept separate from the web archive itself, which could be made public.
 
 Then I ran the crawl using my profile:
 
@@ -32,4 +32,4 @@ A few things to note here are:
 
 Once the crawl completes I went to https://replayweb.page and loaded the WACZ file that is located in `collections/berniesanders/berniesanders.wacz`.
 
-<img width="800" src="https://raw.githubusercontent.com/edsu/berniesanders-instagram/main/images/screencast.gif" title="ReplayWeb.Page Screenshot" />
+<img width="800" src="https://raw.githubusercontent.com/edsu/berniesanders-instagram/main/images/screenshot.png" title="ReplayWeb.Page Screenshot" />
