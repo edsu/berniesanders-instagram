@@ -6,7 +6,7 @@ First I created a profile for crawling Instagram, which requires a login whether
 docker run -p 9222:9222 -p 9223:9223 -v $PWD:/output/ -it webrecorder/browsertrix-crawler create-login-profile --url "https://www.instagram.com/" --interactive
 ```
 
-Opening `http:localhost:9223` in Chrome then let me log in to Instagram, and even to complete two-factor-authentication with my phone. When I was done clicked the *Create Profile* button at the top of the screen which wrote a `profile.tar.gz` file to my current working directory. I then created a profiles directory and moved it in there, giving it a new name to remind me that it has my Instagram account credentials:
+Opening `http:localhost:9223` in Chrome then let me log in to Instagram, and even to complete two-factor-authentication with my phone. When I was done I clicked the *Create Profile* button at the top of the screen which wrote a `profile.tar.gz` file to my current working directory. I then created a profiles directory and moved it in there, giving it a new name to remind me that it has my Instagram account credentials:
 
 ```bash
 $ mkdir profiles
