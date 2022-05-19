@@ -27,7 +27,7 @@ A few things to note here are:
 - `--limit: 1` which makes sure that only that one page is crawled and that it doesn't get snarled up looking at the millions of followers of the account.
 - `--behaviors autoscroll,siteSpecific` to auto-scoll the page and use the Instagram specific [browsertrix-behaviors](https://github.com/webrecorder/browsertrix-behaviors) to click to get details and comments for each post.
 - `--generateWACZ` which will write a WACZ file for the crawl once finished, which is a package of the archived content and its index.
-- `--screencastPort 9037` which lets you open http://localhost:9037 and watch the activity of the crawler
+- `--screencastPort 9037` which let me open http://localhost:9037 to watch the activity of the crawler
 
 <img width="800" src="https://raw.githubusercontent.com/edsu/berniesanders-instagram/main/images/screencast.gif" title="Browsertrix Screencast"/>
 
