@@ -34,3 +34,5 @@ A few things to note here are:
 Once the crawl completed I went to https://replayweb.page and loaded the WACZ file that is located in `collections/berniesanders/berniesanders.wacz`.
 
 <img width="800" src="https://raw.githubusercontent.com/edsu/berniesanders-instagram/main/images/screenshot.png" title="ReplayWeb.Page Screenshot" />
+
+Since ReplayWeb.Page is just a Web Component that operates as a client side Wayback Machine you can create an HTML file that points at the static WACZ file. I've done that [here](https://edsu.github.io/berniesanders-instagram/).
