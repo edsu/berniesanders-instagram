@@ -23,6 +23,7 @@ docker run -p 9037:9037 -v $PWD:/crawls/ -it webrecorder/browsertrix-crawler cra
 
 A few things to note here are:
 
+- `--profile /crawls/profiles/instagram.tar.gz` which tells browsertrix-crawler to use the Instagram profile I just created
 - `--limit: 1` which makes sure that only that one page is crawled and that it doesn't get snarled up looking at the millions of followers of the account.
 - `--behaviors autoscroll,siteSpecific` to auto-scoll the page and use the Instagram specific [browsertrix-behaviors](https://github.com/webrecorder/browsertrix-behaviors) to click to get details and comments for each post.
 - `--generateWACZ` which will write a WACZ file for the crawl once finished, which is a package of the archived content and its index.
