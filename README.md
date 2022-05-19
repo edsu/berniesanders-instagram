@@ -1,9 +1,9 @@
-This repo contains some things I did to try to archive [Bernie Sanders' Instagram](https://www.instagram.com/berniesanders) using [browsertrix-crawler](https://github.com/webrecorder/browsertrix-crawler).
+This repo contains some things I did to try to archive [Bernie Sanders' Instagram](https://www.instagram.com/berniesanders) using [browsertrix-crawler](https://github.com/webrecorder/browsertrix-crawler). You will need a working [Docker environment](https://www.docker.com/) to follow along.
 
 First I created a profile for crawling Instagram, which requires a login whether the account is public or not (in this case Bernie's is):
 
-```
-docker run -p 9222:9222 -p 9223:9223 -v $PWD:/output/ -it webrecorder/browsertrix-crawler create-login-profile --url "https://www.instagram.com/" --interactive
+```bash
+$ docker run -p 9222:9222 -p 9223:9223 -v $PWD:/output/ -it webrecorder/browsertrix-crawler create-login-profile --url "https://www.instagram.com/" --interactive
 ```
 
 Opening `http:localhost:9223` in Chrome then let me log in to Instagram, and even to complete two-factor-authentication with my phone. When I was done I clicked the *Create Profile* button at the top of the screen which wrote a `profile.tar.gz` file to my current working directory. I then created a profiles directory and moved it in there, giving it a new name to remind me that it has my Instagram account credentials:
@@ -17,8 +17,8 @@ I haven't included the profile in this GitHub repository because it contains sec
 
 Then I ran the crawl using my profile:
 
-```
-docker run -p 9037:9037 -v $PWD:/crawls/ -it webrecorder/browsertrix-crawler crawl --url https://www.instagram.com/berniesanders --limit 1 --generateWACZ --text --collection berniesanders --behaviors autoscroll,siteSpecific --profile /crawls/profiles/instagram.tar.gz --screencastPort 9037
+```bash
+$ docker run -p 9037:9037 -v $PWD:/crawls/ -it webrecorder/browsertrix-crawler crawl --url https://www.instagram.com/berniesanders --limit 1 --generateWACZ --text --collection berniesanders --behaviors autoscroll,siteSpecific --profile /crawls/profiles/instagram.tar.gz --screencastPort 9037
 ```
 
 A few things to note here are:
