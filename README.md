@@ -1,4 +1,4 @@
-This repo contains some things I did to try to archive Bernie Sanders Instagram using [browsertrix-crawler](https://github.com/webrecorder/browsertrix-crawler).
+This repo contains some things I did to try to archive [Bernie Sanders' Instagram](https://www.instagram.com/berniesanders) using [browsertrix-crawler](https://github.com/webrecorder/browsertrix-crawler).
 
 First I created a profile for crawling Instagram, which requires a login whether the account is public or not (in this case Bernie's is):
 
